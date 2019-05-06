@@ -3,22 +3,22 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: ghost
-  name: ghost
+    app: sampledeploy
+  name: sampledeploy
 spec:
-  replicas: 1
+  replicas: 5
   selector:
     matchLabels:
-      app: ghost
+      app: sampledeploy
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: ghost
+        app: sampledeploy
     spec:
       containers:
-      - image: ghost
-        name: ghost
+      - image: linuxacademycontent/kubeserve:v2
+        name: kubeserve
         resources: {}
 status: {}

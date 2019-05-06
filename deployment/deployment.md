@@ -38,7 +38,10 @@ k patch deployment ghost -p '{"spec": {"minReadySeconds": 10}}'
 k delete rs nginx-rs --cascade=false
 
 # Update the docker image
-k set image ds nginx-ds nginx-ds-ctr=nginx:1.2.3 
+k set image ds nginx-ds nginx-ds-ctr=nginx:1.2.3
+
+# How to see the image details in deployment
+k rollout history deploy sampledeploy --revision=1
 
 
 
