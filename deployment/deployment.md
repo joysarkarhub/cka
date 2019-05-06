@@ -38,7 +38,19 @@ k patch deployment ghost -p '{"spec": {"minReadySeconds": 10}}'
 k delete rs nginx-rs --cascade=false
 
 # Update the docker image
-k set image ds nginx-ds nginx-ds-ctr=nginx:1.2.3 
+k set image ds nginx-ds nginx-ds-ctr=nginx:1.2.3
+kubectl --record deployment.apps/nginx-deployment set image deployment.v1.apps/nginx-deployment nginx=nginx:1.9.1
+
+# Yaml for replicaset from k8s github 
+https://github.com/kubernetes/website/blob/master/content/en/examples/controllers/frontend.yaml
+
+# Pause a deployment
+k rollout pause deploy sampledaploy
+
+#Resume a deployment
+k rollout resume deploy sampledaploy
+
+
 
 
 
