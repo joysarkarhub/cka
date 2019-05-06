@@ -39,9 +39,24 @@ k delete rs nginx-rs --cascade=false
 
 # Update the docker image
 k set image ds nginx-ds nginx-ds-ctr=nginx:1.2.3
+<<<<<<< HEAD
 
 # How to see the image details in deployment
 k rollout history deploy sampledeploy --revision=1
+=======
+kubectl --record deployment.apps/nginx-deployment set image deployment.v1.apps/nginx-deployment nginx=nginx:1.9.1
+
+# Yaml for replicaset from k8s github 
+https://github.com/kubernetes/website/blob/master/content/en/examples/controllers/frontend.yaml
+
+# Pause a deployment
+k rollout pause deploy sampledaploy
+
+#Resume a deployment
+k rollout resume deploy sampledaploy
+
+
+>>>>>>> a6c8bbcd4cc0e05f3e37103c2779be56fc8ed9af
 
 
 
